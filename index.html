@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Para mi amor ❤️</title>
@@ -12,16 +12,8 @@
       text-align: center;
       overflow-x: hidden;
     }
-
-    h1 {
-      font-size: 40px;
-      color: #d6004c;
-      margin-top: 40px;
-    }
-
-    h2 {
-      color: #c20042;
-    }
+    h1 { font-size: 40px; color: #d6004c; margin-top: 40px; }
+    h2 { color: #c20042; }
 
     #foto {
       width: 300px;
@@ -51,16 +43,9 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: 0.2s;
     }
 
-    button:hover {
-      background: #ff174f;
-      transform: scale(1.08);
-    }
-
-    /* Ventana emergente */
-    #ventana {
+    #ventana, #besito {
       display: none;
       position: fixed;
       top: 50%;
@@ -68,103 +53,83 @@
       transform: translate(-50%, -50%);
       background: white;
       padding: 25px;
-      width: 80%;
-      max-width: 400px;
       border-radius: 15px;
       box-shadow: 0 0 30px rgba(0,0,0,0.3);
     }
 
-    /* Botón que se mueve */
-    #btnNo {
-      position: relative;
+    #besito img {
+      width: 300px;
+      border-radius: 15px;
+      margin-top: 10px;
     }
+
+    #btnNo { position: relative; }
   </style>
 </head>
+
 <body>
 
-  <h1>Felices 5 meses mi amor ❤️</h1>
-  <h2>De tu enamorado Matthew 💖</h2>
+<!-- Música romántica -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/4aQDOUbErNg?autoplay=1&loop=1&playlist=4aQDOUbErNg"
+frameborder="0" allow="autoplay"></iframe>
 
-  <img id="foto" src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/imagen_2025-11-24_011044690.png?raw=true">
+<h1>Felices 7 meses mi amor ❤️</h1>
+<h2>De tu enamorado Matthew 💖</h2>
 
-  <br><br>
-  <button onclick="mostrarMensaje()">Presióname mi amor ❤️</button>
+<img id="foto" src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_3504.jpeg?raw=true">
 
-  <p id="mensaje" style="font-size:22px; color:#d6004c; font-weight:bold;"></p>
+<br><br>
+<button onclick="mostrarMensaje()">Presióname mi amor ❤️</button>
 
-  <div id="extraBoton"></div>
+<p id="mensaje" style="font-size:22px; color:#d6004c; font-weight:bold;"></p>
+<div id="extraBoton"></div>
 
-  <!-- Ventana con la pregunta -->
-  <div id="ventana">
-    <h3 id="textoFecha"></h3>
-    <p style="font-size:20px; font-weight:bold; color:#d6004c;">¿Amas a tu gordito? 💕</p>
+<div id="ventana">
+  <p style="font-size:20px; font-weight:bold; color:#d6004c;">
+    ¿Amas a tu gordito? 💕
+  </p>
+  <button onclick="mostrarBesito()">Sí ❤️</button>
+  <button id="btnNo" onmouseover="escapar()">No 😒</button>
+</div>
 
-    <button onclick="celebrar()">Sí ❤️</button>
-    <button id="btnNo" onmouseover="escapar()">No 😒</button>
-  </div>
+<div id="besito">
+  <h3>Te amo con todo mi corazón ❤️</h3>
+  <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_0743.jpeg?raw=true">
+</div>
 
-  <script>
-    // Corazones animados
-    function lanzarCorazones() {
-      for (let i = 0; i < 8; i++) {
-        let cor = document.createElement("div");
-        cor.className = "corazon";
-        cor.innerHTML = "❤️";
-        cor.style.left = Math.random() * 100 + "vw";
-        cor.style.top = "100vh";
-        document.body.appendChild(cor);
+<script>
+function lanzarCorazones() {
+  for (let i = 0; i < 8; i++) {
+    let c = document.createElement("div");
+    c.className = "corazon";
+    c.innerHTML = "❤️";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.top = "100vh";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 4000);
+  }
+}
+setInterval(lanzarCorazones, 800);
 
-        setTimeout(() => cor.remove(), 4000);
-      }
-    }
-    setInterval(lanzarCorazones, 800);
+function mostrarMensaje() {
+  document.getElementById("mensaje").innerHTML = "Te amo mi gordita ❤️";
+  document.getElementById("extraBoton").innerHTML =
+    `<button onclick="document.getElementById('ventana').style.display='block'">
+      Tengo otra sorpresa 💘
+     </button>`;
+}
 
-    // Botón 1
-    function mostrarMensaje() {
-      document.getElementById("mensaje").innerHTML = "Te amo mi gordita ❤️";
-      lanzarCorazones();
+function escapar() {
+  btnNo.style.left = (Math.random() * 200 - 100) + "px";
+  btnNo.style.top = (Math.random() * 200 - 100) + "px";
+}
 
-      document.getElementById("extraBoton").innerHTML = `
-        <button onclick="mostrarVentana()">Tengo otra sorpresa para ti 💘</button>
-      `;
-    }
-
-    // Mostrar ventana con fecha/hora
-    function mostrarVentana() {
-      const fecha = new Date();
-      const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
-
-      document.getElementById("textoFecha").innerHTML =
-        "Hoy " + fecha.toLocaleDateString('es-ES', opciones) +
-        " a las " + fecha.toLocaleTimeString('es-EC') +
-        "<br><br>Amas a tu gordito? 😳❤️";
-
-      document.getElementById("ventana").style.display = "block";
-    }
-
-    // Botón NO se escapa
-    function escapar() {
-      let btn = document.getElementById("btnNo");
-      btn.style.left = (Math.random() * 200 - 100) + "px";
-      btn.style.top = (Math.random() * 200 - 100) + "px";
-    }
-
-    // Celebración
-    function celebrar() {
-      for (let i = 0; i < 40; i++) {
-        let p = document.createElement("div");
-        p.innerHTML = "🎉";
-        p.style.position = "fixed";
-        p.style.left = Math.random() * 100 + "vw";
-        p.style.top = Math.random() * 100 + "vh";
-        p.style.fontSize = "30px";
-        document.body.appendChild(p);
-
-        setTimeout(() => p.remove(), 2000);
-      }
-      alert("Yoooo también te amooooo mi gordita hermosa ❤️💞");
-    }
-  </script>
+function mostrarBesito() {
+  document.getElementById("ventana").style.display = "none";
+  document.getElementById("besito").style.display = "block";
+}
+</script>
 
 </body>
 </html>
