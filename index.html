@@ -8,7 +8,7 @@
 body{
   margin:0;
   padding:0;
-  background:#5a0f2e; /* concho de vino */
+  background:#0a1a33; /* azul marino oscuro */
   font-family:Arial;
   text-align:center;
   color:white;
@@ -27,8 +27,8 @@ h2{opacity:0.9;}
 
 .beso{
   position:fixed;
-  font-size:30px;
-  animation:caer 4s linear infinite;
+  font-size:55px;
+  animation:caer 7s linear infinite; /* más lento */
 }
 
 @keyframes caer{
@@ -53,10 +53,10 @@ button{
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  background:#7a1c45;
+  background:#142a52;
   padding:25px;
   border-radius:15px;
-  box-shadow:0 0 30px rgba(0,0,0,0.5);
+  box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
 
 #besito img{
@@ -70,12 +70,11 @@ button{
 
 <body>
 
-<!-- Música -->
-<iframe id="musica" width="0" height="0"
-src="https://www.youtube.com/embed/4aQDOUbErNg?loop=1&playlist=4aQDOUbErNg"
-allow="autoplay"></iframe>
+<audio id="musica">
+  <source src="es-por-ti.mp3" type="audio/mpeg">
+</audio>
 
-<h1>Felices 7 meses mi amor ❤️</h1>
+<h1>Felices 8 meses mi amor ❤️</h1>
 <h2>De tu enamorado Matthew 💖</h2>
 
 <img id="foto"
@@ -94,23 +93,23 @@ src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_3504.jpeg?ra
 </div>
 
 <div id="besito">
-  <h3>Te amo infinitamente ❤️</h3>
+  <h3>Gracias por estos 8 meses ❤️</h3>
+  <p>Quiero muchísimos más contigo 💙✨</p>
   <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_0743.jpeg?raw=true">
 </div>
 
 <script>
 function lluviaBesos(){
-  for(let i=0;i<8;i++){
+  for(let i=0;i<6;i++){
     let b=document.createElement("div");
     b.className="beso";
     b.innerHTML="💋";
     b.style.left=Math.random()*100+"vw";
-    b.style.animationDuration=(3+Math.random()*2)+"s";
     document.body.appendChild(b);
-    setTimeout(()=>b.remove(),5000);
+    setTimeout(()=>b.remove(),7000);
   }
 }
-setInterval(lluviaBesos,700);
+setInterval(lluviaBesos,900);
 
 function mostrarMensaje(){
   document.getElementById("mensaje").innerHTML="Te amo mi gordita ❤️";
@@ -128,7 +127,7 @@ function escapar(){
 function mostrarBesito(){
   document.getElementById("ventana").style.display="none";
   document.getElementById("besito").style.display="block";
-  document.getElementById("musica").src+="&autoplay=1";
+  document.getElementById("musica").play();
 }
 </script>
 
