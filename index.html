@@ -8,7 +8,7 @@
 body{
   margin:0;
   padding:0;
-  background:#0a1a33; /* azul marino oscuro */
+  background:#0a1a33;
   font-family:Arial;
   text-align:center;
   color:white;
@@ -28,16 +28,16 @@ h2{opacity:0.9;}
 .beso{
   position:fixed;
   font-size:55px;
-  animation:caer 7s linear infinite; /* más lento */
+  animation:caer 7s linear infinite;
 }
 
 @keyframes caer{
-  0%{transform:translateY(-10vh);opacity:1;}
-  100%{transform:translateY(110vh);opacity:0;}
+  0%{transform:translateY(-10vh);}
+  100%{transform:translateY(110vh);}
 }
 
 button{
-  margin-top:20px;
+  margin-top:15px;
   padding:12px 25px;
   font-size:18px;
   background:#ff3d7a;
@@ -47,7 +47,7 @@ button{
   cursor:pointer;
 }
 
-#ventana,#besito{
+#ventana,#besito,#castigo{
   display:none;
   position:fixed;
   top:50%;
@@ -59,8 +59,8 @@ button{
   box-shadow:0 0 30px rgba(0,0,0,0.6);
 }
 
-#besito img{
-  width:300px;
+#ventana img,#besito img,#castigo img{
+  width:280px;
   border-radius:15px;
 }
 
@@ -78,7 +78,7 @@ button{
 <h2>De tu enamorado Matthew 💖</h2>
 
 <img id="foto"
-src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_3504.jpeg?raw=true">
+src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_2798.jpeg?raw=true">
 
 <br><br>
 <button onclick="mostrarMensaje()">Presióname mi amor ❤️</button>
@@ -87,18 +87,28 @@ src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_3504.jpeg?ra
 <div id="extraBoton"></div>
 
 <div id="ventana">
+  <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_2769.jpeg?raw=true">
   <p style="font-size:20px;font-weight:bold;">¿Amas a tu gordito? 💕</p>
   <button onclick="mostrarBesito()">Sí ❤️</button>
   <button id="btnNo" onmouseover="escapar()">No 😒</button>
 </div>
 
+<div id="castigo">
+  <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/FullSizeRender.jpeg?raw=true">
+  <p style="font-size:20px;font-weight:bold;">Última oportunidad 😏💖</p>
+  <button onclick="mostrarBesito()">Sí ❤️</button>
+  <button id="btnNo2" onmouseover="escapar()">No 😒</button>
+</div>
+
 <div id="besito">
   <h3>Gracias por estos 8 meses ❤️</h3>
-  <p>Quiero muchísimos más contigo 💙✨</p>
+  <p>Quiero muchos más contigo 💙✨</p>
   <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_0743.jpeg?raw=true">
 </div>
 
 <script>
+let intentosNo = 0;
+
 function lluviaBesos(){
   for(let i=0;i<6;i++){
     let b=document.createElement("div");
@@ -120,12 +130,20 @@ function mostrarMensaje(){
 }
 
 function escapar(){
-  btnNo.style.left=(Math.random()*200-100)+"px";
-  btnNo.style.top=(Math.random()*200-100)+"px";
+  intentosNo++;
+  let btn = event.target;
+  btn.style.left=(Math.random()*200-100)+"px";
+  btn.style.top=(Math.random()*200-100)+"px";
+
+  if(intentosNo >= 5){
+    document.getElementById("ventana").style.display="none";
+    document.getElementById("castigo").style.display="block";
+  }
 }
 
 function mostrarBesito(){
   document.getElementById("ventana").style.display="none";
+  document.getElementById("castigo").style.display="none";
   document.getElementById("besito").style.display="block";
   document.getElementById("musica").play();
 }
