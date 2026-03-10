@@ -65,6 +65,24 @@ button{
 }
 
 #btnNo{position:relative;}
+
+.mensajeFinal{
+  margin-top:15px;
+  font-size:22px;
+  font-weight:bold;
+  animation:aparecer 3s ease-in-out infinite alternate;
+}
+
+@keyframes aparecer{
+  0%{
+    opacity:0.4;
+    transform:scale(0.95);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1.05);
+  }
+}
 </style>
 </head>
 
@@ -103,11 +121,11 @@ src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_2798.jpeg?ra
 <div id="besito">
   <h3>Gracias por estos 8 meses ❤️</h3>
   <p>Quiero muchos más contigo 💙✨</p>
+
   <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_0743.jpeg?raw=true">
 
-  <p style="margin-top:12px;font-size:16px;">
-    Tengo una sorpresa para ti 💝, solo escríbeme a WhatsApp:<br>
-    <strong>“Amor, dame mi sorpresa” 😘</strong>
+  <p class="mensajeFinal">
+  Te extraño con todo mi corazón, mi gordita hermosa 💙💋
   </p>
 </div>
 
