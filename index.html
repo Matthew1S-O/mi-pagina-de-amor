@@ -70,7 +70,7 @@ animation:sacudir 0.4s;
 100%{transform:translateX(0);}
 }
 
-/* CORAZON CON IMAGEN */
+/* CORAZON */
 
 #corazonContainer{
 display:none;
@@ -87,8 +87,8 @@ animation:zoom 1s ease;
 }
 
 .corazon{
-width:300px;
-height:300px;
+width:420px;
+height:420px;
 background:url("https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_2769.jpeg?raw=true");
 background-size:cover;
 background-position:center;
@@ -170,13 +170,9 @@ animation:flotar 4s linear infinite;
 
 <script>
 
-/* BOTON NO */
-
 function rechazar(){
 document.getElementById("error").style.display="block";
 }
-
-/* BOTON SI */
 
 function aceptar(){
 
@@ -189,8 +185,6 @@ lluviaBesos();
 particulas();
 
 }
-
-/* BESITOS */
 
 function lluviaBesos(){
 
@@ -210,8 +204,6 @@ setTimeout(()=>beso.remove(),5000);
 },400);
 
 }
-
-/* PARTICULAS */
 
 function particulas(){
 
