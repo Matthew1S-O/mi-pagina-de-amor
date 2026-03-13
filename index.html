@@ -2,174 +2,256 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Para mi amor ❤️</title>
+<title>Viernes 13 ❤️</title>
 
 <style>
+
 body{
-  margin:0;
-  padding:0;
-  background:#0a1a33;
-  font-family:Arial;
-  text-align:center;
-  color:white;
-  overflow-x:hidden;
+margin:0;
+padding:0;
+background:#0a1a33;
+color:white;
+font-family:Arial;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
 }
 
-h1{font-size:40px;margin-top:40px;}
-h2{opacity:0.9;}
+/* TEXTO */
 
-#foto{
-  width:300px;
-  border-radius:20px;
-  margin-top:20px;
-  box-shadow:0 0 20px rgba(255,255,255,0.3);
-}
-
-.beso{
-  position:fixed;
-  font-size:55px;
-  animation:caer 7s linear infinite;
-}
-
-@keyframes caer{
-  0%{transform:translateY(-10vh);}
-  100%{transform:translateY(110vh);}
-}
-
-button{
-  margin-top:15px;
-  padding:12px 25px;
-  font-size:18px;
-  background:#ff3d7a;
-  color:white;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-#ventana,#besito,#castigo{
-  display:none;
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:#142a52;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 0 30px rgba(0,0,0,0.6);
-}
-
-#ventana img,#besito img,#castigo img{
-  width:280px;
-  border-radius:15px;
-}
-
-#btnNo{position:relative;}
-
-.mensajeFinal{
-  margin-top:15px;
-  font-size:22px;
-  font-weight:bold;
-  animation:aparecer 3s ease-in-out infinite alternate;
+.titulo{
+font-size:38px;
+max-width:700px;
+animation:aparecer 2s ease;
 }
 
 @keyframes aparecer{
-  0%{
-    opacity:0.4;
-    transform:scale(0.95);
-  }
-  100%{
-    opacity:1;
-    transform:scale(1.05);
-  }
+0%{opacity:0; transform:translateY(-50px);}
+100%{opacity:1; transform:translateY(0);}
 }
+
+/* BOTONES */
+
+button{
+margin:15px;
+padding:12px 30px;
+font-size:20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#ff3d7a;
+color:white;
+transition:0.2s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* ERROR */
+
+#error{
+display:none;
+font-size:22px;
+margin-top:20px;
+color:#ff6b6b;
+animation:sacudir 0.4s;
+}
+
+@keyframes sacudir{
+0%{transform:translateX(0);}
+25%{transform:translateX(-10px);}
+50%{transform:translateX(10px);}
+75%{transform:translateX(-10px);}
+100%{transform:translateX(0);}
+}
+
+/* CORAZON */
+
+#corazonContainer{
+display:none;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+.heart{
+width:300px;
+height:270px;
+background:red;
+position:relative;
+transform:rotate(-45deg);
+animation:latido 1s infinite;
+}
+
+@keyframes latido{
+0%{transform:rotate(-45deg) scale(1);}
+50%{transform:rotate(-45deg) scale(1.1);}
+100%{transform:rotate(-45deg) scale(1);}
+}
+
+.heart:before,
+.heart:after{
+content:"";
+width:300px;
+height:270px;
+background:red;
+border-radius:50%;
+position:absolute;
+}
+
+.heart:before{
+top:-150px;
+left:0;
+}
+
+.heart:after{
+left:150px;
+top:0;
+}
+
+.foto{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) rotate(45deg);
+width:170px;
+border-radius:12px;
+}
+
+/* BESITOS */
+
+.beso{
+position:fixed;
+font-size:40px;
+animation:caer 5s linear infinite;
+}
+
+@keyframes caer{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+
+/* PARTÍCULAS */
+
+.particula{
+position:absolute;
+color:#ff6fa5;
+font-size:20px;
+animation:flotar 4s linear infinite;
+}
+
+@keyframes flotar{
+0%{opacity:1; transform:translateY(0);}
+100%{opacity:0; transform:translateY(-200px);}
+}
+
 </style>
 </head>
 
 <body>
 
 <audio id="musica">
-  <source src="es-por-ti.mp3" type="audio/mpeg">
+<source src="es-por-ti.mp3" type="audio/mpeg">
 </audio>
 
-<h1>Felices 8 meses mi amor ❤️</h1>
-<h2>De tu enamorado Matthew 💖</h2>
+<div id="inicio">
 
-<img id="foto"
-src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_2798.jpeg?raw=true">
+<h1 class="titulo">
+Tu serás ahora y siempre mi acompañante en los viernes 13 ❤️
+</h1>
 
-<br><br>
-<button onclick="mostrarMensaje()">Presióname mi amor ❤️</button>
-
-<p id="mensaje" style="font-size:22px;font-weight:bold;"></p>
-<div id="extraBoton"></div>
-
-<div id="ventana">
-  <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_2769.jpeg?raw=true">
-  <p style="font-size:20px;font-weight:bold;">¿Amas a tu gordito? 💕</p>
-  <button onclick="mostrarBesito()">Sí ❤️</button>
-  <button id="btnNo" onmouseover="escapar()">No 😒</button>
+<div>
+<button onclick="aceptar()">Sí ❤️</button>
+<button onclick="rechazar()">No 😒</button>
 </div>
 
-<div id="castigo">
-  <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/FullSizeRender.jpeg?raw=true">
-  <p style="font-size:20px;font-weight:bold;">Última oportunidad 😏💖</p>
-  <button onclick="mostrarBesito()">Sí ❤️</button>
-  <button id="btnNo2" onmouseover="escapar()">No 😒</button>
+<p id="error">Error, has roto el corazón de tu hombre 💔</p>
+
 </div>
 
-<div id="besito">
-  <h3>Gracias por estos 8 meses ❤️</h3>
-  <p>Quiero muchos más contigo 💙✨</p>
+<div id="corazonContainer">
 
-  <img src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_0743.jpeg?raw=true">
+<div class="heart">
+<img class="foto"
+src="https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_2769.jpeg?raw=true">
+</div>
 
-  <p class="mensajeFinal">
-  Te extraño con todo mi corazón, mi gordita hermosa 💙💋
-  </p>
 </div>
 
 <script>
-let intentosNo = 0;
+
+/* error */
+
+function rechazar(){
+document.getElementById("error").style.display="block";
+}
+
+/* aceptar */
+
+function aceptar(){
+
+document.getElementById("inicio").style.display="none";
+document.getElementById("corazonContainer").style.display="block";
+
+document.getElementById("musica").play();
+
+lluviaBesos();
+particulas();
+
+}
+
+/* besitos */
 
 function lluviaBesos(){
-  for(let i=0;i<6;i++){
-    let b=document.createElement("div");
-    b.className="beso";
-    b.innerHTML="💋";
-    b.style.left=Math.random()*100+"vw";
-    document.body.appendChild(b);
-    setTimeout(()=>b.remove(),7000);
-  }
-}
-setInterval(lluviaBesos,900);
 
-function mostrarMensaje(){
-  document.getElementById("mensaje").innerHTML="Te amo mi gordita ❤️";
-  document.getElementById("extraBoton").innerHTML=
-  `<button onclick="document.getElementById('ventana').style.display='block'">
-    Tengo otra sorpresa 💘
-   </button>`;
-}
+setInterval(()=>{
 
-function escapar(){
-  intentosNo++;
-  let btn = event.target;
-  btn.style.left=(Math.random()*200-100)+"px";
-  btn.style.top=(Math.random()*200-100)+"px";
+let beso=document.createElement("div");
 
-  if(intentosNo >= 5){
-    document.getElementById("ventana").style.display="none";
-    document.getElementById("castigo").style.display="block";
-  }
+beso.className="beso";
+
+beso.innerHTML="💋";
+
+beso.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(beso);
+
+setTimeout(()=>beso.remove(),5000);
+
+},400);
+
 }
 
-function mostrarBesito(){
-  document.getElementById("ventana").style.display="none";
-  document.getElementById("castigo").style.display="none";
-  document.getElementById("besito").style.display="block";
-  document.getElementById("musica").play();
+/* partículas */
+
+function particulas(){
+
+setInterval(()=>{
+
+let p=document.createElement("div");
+
+p.className="particula";
+
+p.innerHTML="✨";
+
+p.style.left=(window.innerWidth/2 + Math.random()*200 -100)+"px";
+
+p.style.top=(window.innerHeight/2)+"px";
+
+document.body.appendChild(p);
+
+setTimeout(()=>p.remove(),4000);
+
+},200);
+
 }
+
 </script>
 
 </body>
