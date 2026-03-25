@@ -2,228 +2,142 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Viernes 13 ❤️</title>
+<title>9 meses ❤️</title>
 
 <style>
-
 body{
-margin:0;
-padding:0;
-background:#0a1a33;
-color:white;
-font-family:Arial;
-text-align:center;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
+  margin:0;
+  padding:0;
+  background:#0a1a33;
+  font-family:Arial;
+  text-align:center;
+  color:white;
+  overflow:hidden;
 }
 
-/* TEXTO */
-
-.titulo{
-font-size:36px;
-max-width:700px;
-animation:aparecer 2s ease;
+h1{
+  margin-top:60px;
+  font-size:40px;
 }
 
-@keyframes aparecer{
-0%{opacity:0; transform:translateY(-50px);}
-100%{opacity:1; transform:translateY(0);}
+/* SOBRE */
+#sobre{
+  position:relative;
+  width:300px;
+  height:200px;
+  margin:40px auto;
+  cursor:pointer;
 }
 
-/* BOTONES */
-
-button{
-margin:15px;
-padding:12px 30px;
-font-size:20px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-background:#ff3d7a;
-color:white;
-transition:0.2s;
+.base{
+  width:100%;
+  height:100%;
+  background:#ff3d7a;
+  position:absolute;
+  bottom:0;
+  border-radius:5px;
 }
 
-button:hover{
-transform:scale(1.1);
+.tapa{
+  width:100%;
+  height:100%;
+  background:#ff5c8a;
+  position:absolute;
+  top:0;
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+  transform-origin:top;
+  transition:0.6s;
 }
 
-/* ERROR */
-
-#error{
-display:none;
-font-size:22px;
-margin-top:20px;
-color:#ff6b6b;
-animation:sacudir 0.4s;
+/* CARTA */
+.carta{
+  position:absolute;
+  width:90%;
+  height:180px;
+  background:white;
+  color:#333;
+  left:5%;
+  top:10%;
+  padding:15px;
+  border-radius:10px;
+  transform:translateY(100%);
+  transition:0.8s;
+  overflow:auto;
+  font-size:14px;
 }
 
-@keyframes sacudir{
-0%{transform:translateX(0);}
-25%{transform:translateX(-10px);}
-50%{transform:translateX(10px);}
-75%{transform:translateX(-10px);}
-100%{transform:translateX(0);}
+/* ABIERTO */
+#abierto .tapa{
+  transform:rotateX(180deg);
 }
 
-/* CORAZON */
-
-#corazonContainer{
-display:none;
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-animation:zoom 1s ease;
-}
-
-@keyframes zoom{
-0%{transform:translate(-50%,-50%) scale(0);}
-100%{transform:translate(-50%,-50%) scale(1);}
-}
-
-.corazon{
-width:420px;
-height:420px;
-background:url("https://github.com/Matthew1S-O/mi-pagina-de-amor/blob/main/IMG_2769.jpeg?raw=true");
-background-size:cover;
-background-position:center;
-clip-path: polygon(
-50% 90%,
-10% 55%,
-10% 30%,
-25% 15%,
-40% 15%,
-50% 25%,
-60% 15%,
-75% 15%,
-90% 30%,
-90% 55%
-);
-animation:latido 1s infinite;
-}
-
-@keyframes latido{
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
+#abierto .carta{
+  transform:translateY(-40%);
 }
 
 /* BESITOS */
-
 .beso{
-position:fixed;
-font-size:40px;
-animation:caer 5s linear infinite;
+  position:fixed;
+  font-size:35px;
+  animation:caer 5s linear infinite;
 }
 
 @keyframes caer{
-0%{transform:translateY(-10vh);}
-100%{transform:translateY(110vh);}
+  0%{transform:translateY(-10vh);}
+  100%{transform:translateY(110vh);}
 }
-
-/* PARTICULAS */
-
-.particula{
-position:absolute;
-color:#ff6fa5;
-font-size:20px;
-animation:flotar 4s linear infinite;
-}
-
-@keyframes flotar{
-0%{opacity:1; transform:translateY(0);}
-100%{opacity:0; transform:translateY(-200px);}
-}
-
 </style>
 </head>
 
 <body>
 
-<audio id="musica">
-<source src="es-por-ti.mp3" type="audio/mpeg">
-</audio>
+<h1>Felices 9 meses mi amor ❤️</h1>
+<p>Toca el sobre 💌</p>
 
-<div id="inicio">
+<div id="sobre" onclick="abrirSobre()">
+  <div class="base"></div>
+  <div class="tapa"></div>
 
-<h1 class="titulo">
-¿Tú serás ahora y siempre mi acompañante en los viernes 13? ❤️
-</h1>
+  <div class="carta">
+    <p><strong>En 9 meses nace una vida, y esta vida que ha nacido entre nosotros quiero criarla para siempre.</strong></p>
 
-<div>
-<button onclick="aceptar()">Sí ❤️</button>
-<button onclick="rechazar()">No 😒</button>
-</div>
+    <p>
+    Quiero cuidarla, protegerla y hacerla crecer con amor, paciencia y dedicación.
+    Porque lo nuestro es real, lo siento en cada latido.
+    </p>
 
-<p id="error">Error, has roto el corazón de tu hombre 💔</p>
+    <p>
+    Eres mi felicidad, mi tranquilidad y mi razón para seguir adelante.
+    </p>
 
-</div>
+    <p>
+    Quiero seguir contigo, creando recuerdos y viviendo momentos hermosos.
+    </p>
 
-<div id="corazonContainer">
-<div class="corazon"></div>
+    <p>
+    Gracias por existir y por hacerme tan feliz.
+    </p>
+
+    <p><strong>Te amo hoy, mañana y siempre ❤️💙</strong></p>
+  </div>
 </div>
 
 <script>
 
-function rechazar(){
-document.getElementById("error").style.display="block";
-}
-
-function aceptar(){
-
-document.getElementById("inicio").style.display="none";
-document.getElementById("corazonContainer").style.display="block";
-
-document.getElementById("musica").play();
-
-lluviaBesos();
-particulas();
-
+function abrirSobre(){
+  document.getElementById("sobre").id="abierto";
+  lluviaBesos();
 }
 
 function lluviaBesos(){
-
-setInterval(()=>{
-
-let beso=document.createElement("div");
-
-beso.className="beso";
-beso.innerHTML="💋";
-
-beso.style.left=Math.random()*100+"vw";
-
-document.body.appendChild(beso);
-
-setTimeout(()=>beso.remove(),5000);
-
-},400);
-
-}
-
-function particulas(){
-
-setInterval(()=>{
-
-let p=document.createElement("div");
-
-p.className="particula";
-
-p.innerHTML="✨";
-
-p.style.left=(window.innerWidth/2 + Math.random()*200 -100)+"px";
-p.style.top=(window.innerHeight/2)+"px";
-
-document.body.appendChild(p);
-
-setTimeout(()=>p.remove(),4000);
-
-},200);
-
+  setInterval(()=>{
+    let b=document.createElement("div");
+    b.className="beso";
+    b.innerHTML="💋";
+    b.style.left=Math.random()*100+"vw";
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),5000);
+  },300);
 }
 
 </script>
